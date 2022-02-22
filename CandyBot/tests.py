@@ -1,20 +1,34 @@
 from telegram import Update ###
 from telegram.ext import Updater, CommandHandler, CallbackContext ###
+import random ###
 
-# Тестируем вызов функции hello_command
-def hello_command(update: Update, context: CallbackContext): ###
-    update.message.reply_text(f'Hello {update.effective_user.first_name}!') ###
+# Тестируем вызов функции hello_command (приветствие пользователя)
+# def hello_command(update: Update, context: CallbackContext): ###
+#     update.message.reply_text(f'Hello {update.effective_user.first_name}!') ###
 
-# Тестируем вызов функции hello_command
+# # Тестируем вызов функции start_candy (стартовое сообщение)
+# def start_candy():
+#     global sum
+#     g = 2021
+#     sum = (f'На столе лежит {g} конфета. \nПервый ход определяется жеребьевкой. \nЗа один ход можно забрать не более 28 конфет. \nВсе конфеты оппонента достаются сделавшему последний ход')
+#     return sum
+
+# Тестируем вызов функции choice_move
+
+
+def choice_move(update: Update, context: CallbackContext):
+    choice = random.randint(1, 2)
+    update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
 
 
 
-updater = Updater('5224472726:AAGUN3lpLqGm2XLbgv7AFacCb-QjWFj0ScU') ###
 
-updater.dispatcher.add_handler(CommandHandler('hello', hello_command)) ###
+# updater = Updater('5224472726:AAGUN3lpLqGm2XLbgv7AFacCb-QjWFj0ScU') ###
 
-updater.start_polling() ###
-updater.idle() ###
+# updater.dispatcher.add_handler(CommandHandler('hello', hello_command)) ###
+
+# updater.start_polling() ###
+# updater.idle() ###
 
 # import datetime
 # from spy import *

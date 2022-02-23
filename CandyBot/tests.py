@@ -6,19 +6,20 @@ import random ###
 # def hello_command(update: Update, context: CallbackContext): ###
 #     update.message.reply_text(f'Hello {update.effective_user.first_name}!') ###
 
-# # Тестируем вызов функции start_candy (стартовое сообщение)
+# Тестируем вызов функции start_candy (стартовое сообщение)
 # def start_candy():
 #     global sum
 #     g = 2021
-#     sum = (f'На столе лежит {g} конфета. \nПервый ход определяется жеребьевкой. \nЗа один ход можно забрать не более 28 конфет. \nВсе конфеты оппонента достаются сделавшему последний ход')
-#     return sum
+#     sum = (f'Количество конфет на столе: {g}.')
+#     sum1 = (f'\nПервый ход определяется жеребьевкой. \nЗа один ход можно забрать не более 28 конфет. \nВсе конфеты оппонента достаются сделавшему последний ход. \nПроведем жеребьевку? Введите 1 или 2')
+#     return sum + sum1
 
-# Тестируем вызов функции choice_move
-
+# Тестируем вызов функции choice_move НЕ ДОДEЛАНАd
 
 def choice_move(update: Update, context: CallbackContext):
     choice = random.randint(1, 2)
     update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
+
 
 
 

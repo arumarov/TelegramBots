@@ -14,11 +14,20 @@ import random ###
 #     sum1 = (f'\nПервый ход определяется жеребьевкой. \nЗа один ход можно забрать не более 28 конфет. \nВсе конфеты оппонента достаются сделавшему последний ход. \nПроведем жеребьевку? Введите 1 или 2')
 #     return sum + sum1
 
-# Тестируем вызов функции choice_move НЕ ДОДEЛАНАd
+# Тестируем вызов функции choice_move (СДЕЛАНА В ОФЛАЙНЕ, АДАПТИРОВАТЬ ПОД ТЕЛЕГРАМ)
 
-def choice_move(update: Update, context: CallbackContext):
+def choice_move():
     choice = random.randint(1, 2)
-    update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
+    message = 'Жеребьевка! Выберите число: 1 или 2'
+    print(message)
+    mes1 = int(input())
+    if mes1 != 1 and mes1 != 2: res = choice_move()
+    elif mes1 == choice: res = 'Вы ходите первым'
+    elif mes1 != choice: res = 'Компьютер ходит первым'
+    return res
+print(choice_move())
+    # update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
+
 
 
 

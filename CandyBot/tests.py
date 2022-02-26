@@ -26,12 +26,42 @@ import random ###
 #     elif mes1 == choice: res = 'Вы ходите первым'
 #     elif mes1 != choice: res = 'Компьютер ходит первым'
 #     return res
+# res = (choice_move())
 # print(choice_move())
+# 
     # update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
 
-# Тестируем вызов функции game_candy
+# Тестируем вызов функции game_candy (СДЕЛАНА В ОФЛАЙНЕ ЕСЛИ ПЕРВЫМ ХОДИТ ИГРОК, АДАПТИРОВАТЬ ПОД ТЕЛЕГРАМ)
 
-def game_candy():
+# def game_candy(sum):
+#     global result
+#     print('Ход игрока: ')
+#     play1 =  int(input())
+#     if sum >= 28: b = 28
+#     elif sum < 28: b = sum
+#     if play1 >=1 and play1 <= b:
+#         sum = sum - play1
+#         if sum <=0:
+#             result = 'Победа игрока'
+#         else: 
+#             print(f'Остаток: {sum}')
+#             if sum >= 28: a = 28
+#             elif sum < 28: a = sum
+#             play2 = random.randint(1, a)
+#             print(f'Ход компа: {play2}') 
+#             sum = sum - play2
+#             if sum <=0: 
+#                 result = 'Победа компа'
+#             elif sum > 0:
+#                 print(f'Остаток: {sum}')
+#                 game_candy(sum)
+#     else:
+#         print('Неверный ввод')
+#         game_candy(sum)
+#     return result
+
+# g = int(100)
+# print(game_candy(g))
     
 
 

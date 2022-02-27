@@ -10,7 +10,7 @@ import random ###
 # def start_candy():
 #     global sum
 #     global g
-#     g = 2021
+#     g = 100
 #     sum = (f'Количество конфет на столе: {g}.')
 #     sum1 = (f'\nПервый ход определяется жеребьевкой. \nЗа один ход можно забрать не более 28 конфет. \nВсе конфеты оппонента достаются сделавшему последний ход. \nПроведем жеребьевку? Введите 1 или 2')
 #     return sum + sum1
@@ -28,45 +28,68 @@ import random ###
 #     return res
 # res = (choice_move())
 # print(choice_move())
-# 
+
     # update.message.reply_text(f'Жеребьевка {update.effective_user.first_name}!')
 
 # Тестируем вызов функции game_candy (СДЕЛАНА В ОФЛАЙНЕ ЕСЛИ ПЕРВЫМ ХОДИТ ИГРОК, АДАПТИРОВАТЬ ПОД ТЕЛЕГРАМ)
 
-# def game_candy(sum):
-#     global result
-#     print('Ход игрока: ')
-#     play1 =  int(input())
-#     if sum >= 28: b = 28
-#     elif sum < 28: b = sum
-#     if play1 >=1 and play1 <= b:
-#         sum = sum - play1
-#         if sum <=0:
-#             result = 'Победа игрока'
-#         else: 
-#             print(f'Остаток: {sum}')
-#             if sum >= 28: a = 28
-#             elif sum < 28: a = sum
-#             play2 = random.randint(1, a)
-#             print(f'Ход компа: {play2}') 
-#             sum = sum - play2
-#             if sum <=0: 
-#                 result = 'Победа компа'
-#             elif sum > 0:
-#                 print(f'Остаток: {sum}')
-#                 game_candy(sum)
-#     else:
-#         print('Неверный ввод')
-#         game_candy(sum)
-#     return result
+def game_candy(sum):
+    global result
+    print('Ход игрока: ')
+    play1 =  int(input())
+    if sum >= 28: b = 28
+    elif sum < 28: b = sum
+    if play1 >=1 and play1 <= b:
+        sum = sum - play1
+        if sum <=0:
+            result = 'Победа игрока'
+        else: 
+            print(f'Остаток: {sum}')
+            if sum >= 28: a = 28
+            elif sum < 28: a = sum
+            play2 = random.randint(1, a)
+            print(f'Ход компа: {play2}') 
+            sum = sum - play2
+            if sum <=0: 
+                result = 'Победа компа'
+            elif sum > 0:
+                print(f'Остаток: {sum}')
+                game_candy(sum)
+    else:
+        print('Неверный ввод')
+        game_candy(sum)
+    return result
 
-# g = int(100)
-# print(game_candy(g))
     
+# Тестируем вызов функции game_candy_2 (СДЕЛАНА В ОФЛАЙНЕ ЕСЛИ ПЕРВЫМ ХОДИТ КОМП, АДАПТИРОВАТЬ ПОД ТЕЛЕГРАМ)
 
-
-
-
+def game_candy_2(sum): #100
+    global result
+    if sum >= 28: a = 28
+    elif sum < 28: a = sum
+    play2 = random.randint(1, a) #10
+    print(f'Ход компа: {play2}') #10
+    sum = sum - play2 #90
+    if sum <=0: 
+        result = 'Победа компа'
+    elif sum > 0: #90
+        print(f'Остаток: {sum}') #90
+        #game_candy_2(sum) 
+        print('Ход игрока: ')
+        play1 =  int(input()) #20
+        if sum >= 28: b = 28
+        elif sum < 28: b = sum
+        if play1 >=1 and play1 <= b:
+            sum = sum - play1 #70
+            if sum <=0:
+                result = 'Победа игрока'
+            else:
+                print(f'Остаток: {sum}')
+                game_candy_2(sum)
+        else:
+            print('Неверный ввод')
+            game_candy(sum)
+    return result
 
 # updater = Updater('5224472726:AAGUN3lpLqGm2XLbgv7AFacCb-QjWFj0ScU') ###
 

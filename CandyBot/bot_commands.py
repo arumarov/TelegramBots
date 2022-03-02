@@ -18,6 +18,7 @@ def start_candy(update: Update, context: CallbackContext):
     update.message.reply_text(sum + sum1)
     choice_move()
 
+
 def choice_move(update: Update, context: CallbackContext):
     choice = random.randint(1, 2)
     update.message.reply_text('Жеребьевка! Введите число: 1 или 2: ')
